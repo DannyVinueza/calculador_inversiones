@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Resultado de la Simulacion</title>
+
+</head>
+<body>
+	<div class="container">
+		<h2>Resultado de la Simulacion</h2>
+
+		<div class="detalle">
+			<span>Nombre:</span><span th:text="${resultado.nombres}"></span>
+		</div>
+		<div class="detalle">
+			<span>Cédula:</span><span th:text="${resultado.cedula}"></span>
+		</div>
+		<div class="detalle">
+			<span>Email:</span><span th:text="${resultado.email}"></span>
+		</div>
+		<div class="detalle">
+			<span>Celular:</span><span th:text="${resultado.celular}"></span>
+		</div>
+
+		<div class="detalle">
+			<span>Capital Inicial:</span> $<span
+				th:text="${#numbers.formatDecimal(resultado.capitalInicial, 1, 2)}"></span>
+		</div>
+		<div class="detalle">
+			<span>Periodos por año:</span><span
+				th:text="${resultado.numeroPeriodos}"></span>
+		</div>
+		<div class="detalle">
+			<span>Tiempo (años):</span><span th:text="${resultado.tiempoAnios}"></span>
+		</div>
+		<div class="detalle">
+			<span>Tasa de interés:</span><span
+				th:text="${#numbers.formatPercent(resultado.tasaInteres, 1, 2)}"></span>
+		</div>
+		<hr />
+		<div class="detalle">
+			<span>Valor Futuro:</span> $<span
+				th:text="${#numbers.formatDecimal(resultado.valorFuturo, 1, 2)}"></span>
+		</div>
+		<div class="detalle">
+			<span>Interés Ganado:</span> $<span
+				th:text="${#numbers.formatDecimal(resultado.interesGanado, 1, 2)}"></span>
+		</div>
+		<div class="detalle">
+			<span>Categoría:</span> <span
+				th:text="'Categoría ' + ${resultado.categoria}"></span>
+		</div>
+		<div class="detalle">
+			<span>Fecha de Simulación:</span> <span
+				th:text="${#temporals.format(resultado.fechaCreacion, 'dd-MM-yyyy HH:mm')}"></span>
+		</div>
+
+		<div class="acciones">
+			<a th:href="@{/simulaciones}">Ver todas las simulaciones</a>
+		</div>
+	</div>
+</body>
+</html>
