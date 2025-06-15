@@ -1,10 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+    <div class="contenedor">
+        <h1>Simulador de Inversiones</h1>
+        <form th:object="${simulacion}" th:action="@{/guardar}" method="post">
 
+            <label for="nombres">Nombres:</label>
+            <input type="text" th:field="*{nombres}" placeholder="Ingrese sus nombres" required>
+
+            <label for="cedula">Cédula:</label>
+            <input type="text" th:field="*{cedula}" placeholder="Ingrese su cédula" required>
+
+            <label for="email">Email:</label>
+            <input type="email" th:field="*{email}" placeholder="Ingrese su correo electrónico" required>
+
+            <label for="celular">Celular:</label>
+            <input type="text" th:field="*{celular}" placeholder="Ingrese su número celular" required>
+
+            <label for="capitalInicial">Capital Inicial (mínimo $100):</label>
+            <input type="number" step="0.01" min="100" th:field="*{capitalInicial}" required>
+
+            <label for="numeroPeriodos">Frecuencia de Capitalización:</label>
+            <select th:field="*{numeroPeriodos}" required>
+                <option value="" disabled selected>Seleccione...</option>
+                <option value="2">Semestral (5%)</option>
+                <option value="4">Trimestral (7%)</option>
+                <option value="12">Mensual (11%)</option>
+            </select>
+
+              <button type="submit">Calcular Inversión</button>
+              
+        </form>
+        <br>
+    </div>
 </body>
+
 </html>
