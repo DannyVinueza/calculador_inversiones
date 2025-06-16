@@ -1,10 +1,15 @@
 package com.uisrael.calculador.service.impl;
 
 import com.uisrael.calculador.entity.Simulacion;
+
 import com.uisrael.calculador.repository.SimulacionRepository;
 import com.uisrael.calculador.service.SimulacionService;
 
 import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+@Service
 
 public class SimulacionServiceImpl implements SimulacionService {
 

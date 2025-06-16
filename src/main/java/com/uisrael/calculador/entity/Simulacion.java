@@ -22,7 +22,7 @@ public class Simulacion {
     private String email;
     private String celular;
     private double capitalInicial;
-    private int numeroPeriodos;
+    private Integer numeroPeriodos;
     private int tiempoAnios;
 
     private double tasaInteres;

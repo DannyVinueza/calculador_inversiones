@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Formulario de Simulación</title>
+</head>
+<body>
+    <h1>Formulario de Nueva Simulación</h1>
+    <form th:action="@{/simulacion/guardar}" th:object="${simulacion}" method="post">
+        
+        <label for="nombres">Nombres:</label>
+        <input type="text" id="nombres" th:field="*{nombres}" placeholder="Ingrese sus nombres" required />
+        <br/>
+
+        <label for="cedula">Cédula:</label>
+        <input type="text" id="cedula" th:field="*{cedula}" placeholder="Ingrese su cédula" required />
+        <br/>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" th:field="*{email}" placeholder="Ingrese su correo electrónico" required />
+        <br/>
+
+        <label for="celular">Celular:</label>
+        <input type="text" id="celular" th:field="*{celular}" placeholder="Ingrese su número celular" required />
+        <br/>
+
+        <label for="capitalInicial">Capital Inicial (mínimo $100):</label>
+        <input type="number" id="capitalInicial" step="0.01" min="100" th:field="*{capitalInicial}" required />
+        <br/>
+
+        <label for="numeroPeriodos">Frecuencia de Capitalización:</label>
+        <select id="numeroPeriodos" th:field="*{numeroPeriodos}" required>
+            <option value="" disabled selected>Seleccione...</option>
+            <option value="2">Semestral (5%)</option>
+            <option value="4">Trimestral (7%)</option>
+            <option value="12">Mensual (11%)</option>
+        </select>
+        <br/><br/>
+
+        <button type="submit">Calcular Inversión</button>
+    </form>
+</body>
+</html>
