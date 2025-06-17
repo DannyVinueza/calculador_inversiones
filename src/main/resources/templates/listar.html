@@ -136,7 +136,7 @@
                 <td th:text="${#numbers.formatDecimal(simulacion.valorFuturo, 1, 'COMMA', 2, 'POINT')}">$0.00</td>
                 <td th:text="${#numbers.formatDecimal(simulacion.interesGanado, 1, 'COMMA', 2, 'POINT')}">$0.00</td>
                 <td th:text="${simulacion.categoria}">Categoría</td>
-                <td th:text="${#dates.format(simulacion.fechaCreacion, 'dd/MM/yyyy HH:mm')}">01/01/2025</td>
+                <td th:text="${#temporals.format(simulacion.fechaCreacion, 'yyyy-MM-dd HH:mm')}">01/01/2025</td>
             </tr>
         </tbody>
     </table>

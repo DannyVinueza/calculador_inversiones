@@ -34,7 +34,9 @@ public class SimulacionController {
 
     @PostMapping("/guardar")
     public String guardarSimulacion(@ModelAttribute("simulacion") Simulacion simulacion) {
-        simulacionService.create(simulacion);
+
+        Simulacion simulacionEntity = simulacionService.calcularSimulacion(simulacion);
+        simulacionService.create(simulacionEntity);
         return "redirect:/simulacion";
     }
 }

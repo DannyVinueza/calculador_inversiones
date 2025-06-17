@@ -10,4 +10,9 @@ import java.util.List;
 public interface SimulacionService {
     List<Simulacion> get();
     Simulacion create(Simulacion simulacion);
+
+    Simulacion calcularSimulacion(Simulacion simulacion);
+    double determinarTasaInteres(int periodosPorAnio);
+    double calcularValorFuturo(double capital, double tasa, int periodos, int anios);
+    int determinarCategoria(double capital, int periodos);
 }
