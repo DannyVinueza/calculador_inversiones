@@ -3,10 +3,114 @@
 <head>
     <meta charset="UTF-8" />
     <title>Listado de Simulaciones</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        thead {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: center;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tbody tr:hover {
+            background-color: #eef4ff;
+        }
+
+        a {
+            display: inline-block;
+            margin: 20px auto;
+            text-decoration: none;
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            text-align: center;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 768px) {
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+            
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+
+            tr {
+                margin-bottom: 10px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                background: #fff;
+                padding: 10px;
+            }
+
+            td {
+                text-align: right;
+                padding-left: 50%;
+                position: relative;
+            }
+
+            td::before {
+                position: absolute;
+                left: 10px;
+                width: 45%;
+                white-space: nowrap;
+                font-weight: bold;
+                text-align: left;
+            }
+
+            td:nth-of-type(1)::before { content: "Nombres"; }
+            td:nth-of-type(2)::before { content: "Cédula"; }
+            td:nth-of-type(3)::before { content: "Email"; }
+            td:nth-of-type(4)::before { content: "Celular"; }
+            td:nth-of-type(5)::before { content: "Capital Inicial"; }
+            td:nth-of-type(6)::before { content: "Frecuencia Capitalización"; }
+            td:nth-of-type(7)::before { content: "Valor Futuro"; }
+            td:nth-of-type(8)::before { content: "Interés Ganado"; }
+            td:nth-of-type(9)::before { content: "Categoría"; }
+            td:nth-of-type(10)::before { content: "Fecha Creación"; }
+        }
+    </style>
 </head>
 <body>
     <h1>Historial de Simulaciones</h1>
-    <table border="1">
+
+    <table>
         <thead>
             <tr>
                 <th>Nombres</th>
@@ -37,7 +141,6 @@
         </tbody>
     </table>
 
-    <br>
     <a th:href="@{/simulacion/formulario}">Nueva Simulación</a>
 
 </body>
